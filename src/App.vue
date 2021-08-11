@@ -1,26 +1,44 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+	export default {
+		name: "app",
+		data() {
+			return {
+				isDreamStan: Boolean(Math.floor(Math.random() * 5)),
+			};
+		},
+		methods: {
+			getIsDreamStan() {
+				this.isDreamStan = Boolean(Math.floor(Math.random() * 5));
+			}
+		}
+	}
 </script>
 
+<template>
+	<div>
+		<h1>you {{isDreamStan ? 'are' : 'aren\'t'}} a dream stan</h1>
+		<button class="btn" v-on:click="getIsDreamStan">reroll</button>
+	</div>
+</template>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+	html {
+		background-color: #36393f;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100vh;
+	}
+	h1 {
+		color: whitesmoke;
+	}
+	.btn {
+		padding-left: 40px;
+		padding-right: 40px;
+		border-radius: 1px;
+		font-size: 20px;
+		order: 2;
+		flex: 0 0 120px;
+		border: 2px solid #00AA66;
+	}
 </style>
